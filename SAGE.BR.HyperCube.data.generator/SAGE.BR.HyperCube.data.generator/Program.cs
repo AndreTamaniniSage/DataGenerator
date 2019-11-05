@@ -8,7 +8,7 @@ namespace SAGE.BR.HyperCube.data.generator
         {
             TrabalhadorServiceSteps trabalhadorService = new TrabalhadorServiceSteps();
 
-            trabalhadorService.InsereXEmpresaComXTrabalhadores(2,10);
+            trabalhadorService.InsereXEmpresaSimplesComXMensalistasEXProlaboristas(2,20, 10);
         }
     }
 }

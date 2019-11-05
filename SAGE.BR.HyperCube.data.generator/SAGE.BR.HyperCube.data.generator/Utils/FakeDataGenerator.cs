@@ -54,9 +54,7 @@ namespace SAGE.BR.HyperCube.data.generator.Utils
                           .Select(s => s[random.Next(s.Length)])
                           .ToArray());
             return result;
-        }
-
-        
+        } 
         public static string FakeNis()
         {
              // 9 números aleatórios

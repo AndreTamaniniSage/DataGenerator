@@ -10,6 +10,7 @@ namespace SAGE.BR.HyperCube.data.generator.Models
         public string subscriptionId { get; set; }
         public string idEstabelecimento { get; set; }
         public string inicioPeriodo { get; set; }
+        public string codigoTerceiros { get; set; }
         public string fimPeriodo { get; set; }
         public string aliquotaFap { get; set; }
         public string aliquotaRat { get; set; }
@@ -19,12 +20,8 @@ namespace SAGE.BR.HyperCube.data.generator.Models
         public string idReceitaContribuicaoPrevidenciaria { get; set; }
         public string inicioPeriodoAnoMes { get; set; }
         public string fimPeriodoAnoMes { get; set; }
-        public bool isDeleted { get; set; }
-        public string deleteDate { get; set; }
-        public string updateDate { get; set; }
-        public string createDate { get; set; }
-        public string deleteUserId { get; set; }
-        public string updateUserId { get; set; }
-        public string createUserId { get; set; }
+        public string responsavelTransmissao { get; set; }
+        public string nomeContato { get; set; }
+
     }
 }
