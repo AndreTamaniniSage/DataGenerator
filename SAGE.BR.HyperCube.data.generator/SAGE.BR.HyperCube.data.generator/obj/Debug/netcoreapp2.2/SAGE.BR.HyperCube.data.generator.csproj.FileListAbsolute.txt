@@ -1,0 +1,11 @@
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\obj\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.csprojAssemblyReference.cache
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\obj\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.csproj.CoreCompileInputs.cache
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\obj\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.AssemblyInfoInputs.cache
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\obj\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.AssemblyInfo.cs
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\bin\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.deps.json
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\bin\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.runtimeconfig.json
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\bin\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.runtimeconfig.dev.json
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\bin\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.dll
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\bin\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.pdb
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\obj\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.dll
+R:\workspace\sage.br.hypercube.data.generator\SAGE.BR.HyperCube.data.generator\SAGE.BR.HyperCube.data.generator\obj\Debug\netcoreapp2.2\SAGE.BR.HyperCube.data.generator.pdb
