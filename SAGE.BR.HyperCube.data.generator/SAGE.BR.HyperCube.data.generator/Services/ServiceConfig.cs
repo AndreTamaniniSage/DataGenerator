@@ -4,7 +4,10 @@ namespace SAGE.BR.HyperCube.data.generator
 {
     public static class ServiceConfig
     {
-        //Chrome
+        //public const string UrlAdm = "http://ec2co-ecsel-nciy6l1hlzdi-72853533.us-east-1.elb.amazonaws.com:5001";
+        //public const string UrlHrm = "http://ec2co-ecsel-nciy6l1hlzdi-72853533.us-east-1.elb.amazonaws.com:5002";
+        //public const string UrlUsm = "http://ec2co-ecsel-nciy6l1hlzdi-72853533.us-east-1.elb.amazonaws.com:5005";
+
         public const string UrlAdm = "http://localhost:5001";
         public const string UrlHrm = "http://localhost:5002";
         public const string UrlUsm = "http://localhost:5005";
