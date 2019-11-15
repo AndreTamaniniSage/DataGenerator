@@ -31,6 +31,25 @@ namespace SAGE.BR.HyperCube.data.generator.ServicesSteps
                 }
             }
         }
+        public void InsereXEmpresaComAdiantamentoSimplesComXMensalistas(int numeroEmpresa, int numeroMensalistas)
+        {
+            string PossuiAdiantamento = "Sim";
+            string DiaDeAdiantamento = "15";
+            string PorcentamCalculoAdiantamento = "40.00";
+            string CalcularAdiantamentoMesAdmissão = "Sim";
+
+
+            for (int i = 0; i < numeroEmpresa; i++)
+            {
+                Estabelecimento estabelecimento = EmpresaServiceSteps.OCadastroDaEmpresaComAdiantamento("01", PossuiAdiantamento, DiaDeAdiantamento, PorcentamCalculoAdiantamento, CalcularAdiantamentoMesAdmissão);
+
+                for (int n = 0; n < numeroMensalistas; n++)
+                {
+                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("101", "Sim", estabelecimento, 0);
+                }
+            }
+        }
+
 
 
         public void VerificaParametrosEInsereTrabalharContratoEHistoricoContrato(string CategoriaContrato, string Adiantamento, Estabelecimento Estabelecimento, int QuantidadeDependentesIrrf)
