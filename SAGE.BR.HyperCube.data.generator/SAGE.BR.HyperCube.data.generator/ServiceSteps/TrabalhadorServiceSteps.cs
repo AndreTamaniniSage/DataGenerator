@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using SAGE.BR.HyperCube.data.generator.Models.EmpresaEstabelecimento;
 using SAGE.BR.HyperCube.data.generator.Models.TrabalhadorDependente;
 
@@ -13,48 +14,74 @@ namespace SAGE.BR.HyperCube.data.generator.ServicesSteps
         private TrabalhadorContratoService TrabalhadorContratoService = new TrabalhadorContratoService();
 
 
-        public void InsereXEmpresaSimplesComXMensalistasEXProlaboristas(int numeroEmpresa, int numeroMensalistas, int numeroProlaboristas)
+        public Task InsereXEmpresaSimplesComXMensalistasEXProlaboristas(int numeroEmpresa, int numeroMensalistas, int numeroProlaboristas)
         {
-            for (int i = 0; i < numeroEmpresa; i++)
+            Parallel.For(0, numeroEmpresa, k =>
             {
+                Console.WriteLine($"Incluindo empresa Class 01 {k + 1}/{numeroEmpresa}");
                 Estabelecimento estabelecimento = EmpresaServiceSteps.OCadastroDaEmpresaComClassificacao("01");
 
-                for (int n = 0; n < numeroMensalistas; n++)
+                Parallel.For(0, numeroMensalistas, i =>
                 {
-                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("101", "Não", estabelecimento, 0);
-                }
+                    Console.WriteLine($"Incluindo Mensalista {i + 1}/{numeroMensalistas} da empresa {estabelecimento.nmRazao}");
+                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("101",
+                                                                                 "Não",
+                                                                                  estabelecimento,
+                                                                                  GetQtdDenpendentes(0, 2));
 
-                for (int n = 0; n < numeroProlaboristas; n++)
+
+                });
+                Parallel.For(0, numeroProlaboristas, n =>
                 {
-                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("722", "Não", estabelecimento, 0);
-                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("723", "Não", estabelecimento, 0);
-                }
-            }
+                    Console.WriteLine($"Incluindo Mensalista {n + 1}/{numeroProlaboristas} da empresa {estabelecimento.nmRazao} do tipo 722");
+                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("722",
+                                                                                 "Não",
+                                                                                 estabelecimento,
+                                                                                 GetQtdDenpendentes(0, 1));
+                    Console.WriteLine($"Incluindo Mensalista {n + 1}/{numeroProlaboristas} da empresa {estabelecimento.nmRazao} do tipo 723");
+                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("723",
+                                                                                 "Não",
+                                                                                 estabelecimento,
+                                                                                 GetQtdDenpendentes(0, 2));
+                });
+            });
+            return Task.CompletedTask;
         }
-        public void InsereXEmpresaComAdiantamentoSimplesComXMensalistas(int numeroEmpresa, int numeroMensalistas)
+        public Task InsereXEmpresaComAdiantamentoSimplesComXMensalistas(int numeroEmpresa, int numeroMensalistas)
         {
             string PossuiAdiantamento = "Sim";
             string DiaDeAdiantamento = "15";
             string PorcentamCalculoAdiantamento = "40.00";
             string CalcularAdiantamentoMesAdmissão = "Sim";
 
-
-            for (int i = 0; i < numeroEmpresa; i++)
+            Parallel.For(0, numeroEmpresa, k =>
             {
-                Estabelecimento estabelecimento = EmpresaServiceSteps.OCadastroDaEmpresaComAdiantamento("01", PossuiAdiantamento, DiaDeAdiantamento, PorcentamCalculoAdiantamento, CalcularAdiantamentoMesAdmissão);
-
-                for (int n = 0; n < numeroMensalistas; n++)
+                Console.WriteLine($"Incluindo empresa Class 01 {k + 1}/{numeroEmpresa}");
+                Estabelecimento estabelecimento = EmpresaServiceSteps.OCadastroDaEmpresaComAdiantamento("01",
+                                                                                            PossuiAdiantamento,
+                                                                                            DiaDeAdiantamento,
+                                                                                            PorcentamCalculoAdiantamento,
+                                                                                            CalcularAdiantamentoMesAdmissão);
+                Parallel.For(0, numeroMensalistas, i =>
                 {
-                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("101", "Sim", estabelecimento, 0);
-                }
-            }
+                    Console.WriteLine($"Incluindo Trabalhador {i + 1}/{numeroMensalistas} da empresa {estabelecimento.nmRazao}");
+                    VerificaParametrosEInsereTrabalharContratoEHistoricoContrato("101",
+                                                                                 "Sim",
+                                                                                 estabelecimento,
+                                                                                 GetQtdDenpendentes(0, 3));
+                });
+            });
+
+            return Task.CompletedTask;
         }
 
-
+        private int GetQtdDenpendentes(int minValue, int maxValue)
+        {
+            return new Random().Next(minValue, maxValue);
+        }
 
         public void VerificaParametrosEInsereTrabalharContratoEHistoricoContrato(string CategoriaContrato, string Adiantamento, Estabelecimento Estabelecimento, int QuantidadeDependentesIrrf)
         {
-
             Trabalhador Trabalhador = new Trabalhador();
             ContratoTrabalho ContratoTrabalho = new ContratoTrabalho();
             ContratoTrabalhoHistorico ContratoTrabalhoHistorico = new ContratoTrabalhoHistorico();
@@ -95,16 +122,16 @@ namespace SAGE.BR.HyperCube.data.generator.ServicesSteps
 
 
             Trabalhador = TrabalhadorContratoService.InsereTrabalhadorComOContratoParaOEstabelecimento(Estabelecimento, ContratoTrabalho, ContratoTrabalhoHistorico);
-
-            for (int i = 0; i < QuantidadeDependentesIrrf; i++)
+            Parallel.For(0, QuantidadeDependentesIrrf, i =>
             {
+                Console.WriteLine($"Incluindo Dependente {i + 1}/{QuantidadeDependentesIrrf} do trabalhador {Trabalhador.nome}");
                 DependenteTrabalhador DependenteTrabalhador = new DependenteTrabalhador();
                 DependenteTrabalhadorPeriodo DependenteTrabalhadorPeriodo = new DependenteTrabalhadorPeriodo();
                 DependenteTrabalhador.dependenteIRRF = true;
                 DependenteTrabalhadorPeriodo.deduzIRRF = true;
 
                 DependenteTrabalhadorService.InsereDependenteTrabalhador(Trabalhador, DependenteTrabalhador, DependenteTrabalhadorPeriodo);
-            }
+            });
         }
     }
 }

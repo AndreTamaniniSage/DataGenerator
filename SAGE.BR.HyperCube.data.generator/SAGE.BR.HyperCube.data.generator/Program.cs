@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using SAGE.BR.HyperCube.data.generator.ServicesSteps;
 namespace SAGE.BR.HyperCube.data.generator
 {
@@ -8,9 +10,15 @@ namespace SAGE.BR.HyperCube.data.generator
         {
             TrabalhadorServiceSteps trabalhadorService = new TrabalhadorServiceSteps();
 
-            trabalhadorService.InsereXEmpresaSimplesComXMensalistasEXProlaboristas(2,60, 20);
+            var tasks = new List<Task>();
 
-            trabalhadorService.InsereXEmpresaComAdiantamentoSimplesComXMensalistas(3, 40);
+            tasks.Add(trabalhadorService.InsereXEmpresaSimplesComXMensalistasEXProlaboristas(1, 30, 1));
+
+            tasks.Add(trabalhadorService.InsereXEmpresaComAdiantamentoSimplesComXMensalistas(1, 40));
+
+            Task t = Task.WhenAll(tasks);
+            t.Wait();
+            Console.WriteLine("Terminou a inclusão da massa de Dados");
         }
     }
 }
